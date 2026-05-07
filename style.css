@@ -17,12 +17,6 @@ body {
   width: 100vw;
   height: 100vh;
   background: radial-gradient(circle at top, #1e293b, #050816);
-  animation: bg 8s infinite alternate;
-}
-
-@keyframes bg {
-  from { filter: hue-rotate(0deg); }
-  to { filter: hue-rotate(40deg); }
 }
 
 /* HUD */
@@ -60,17 +54,27 @@ body {
   position: absolute;
   width: 40px;
   height: 60px;
-  bottom: 90px;
+  bottom: 100px;
   background: red;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   box-shadow: 0 0 15px red;
+}
+
+/* PISO */
+#ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: #111827;
+  border-top: 4px solid #38bdf8;
 }
 
 /* MENÚ */
 #menu {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.92);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,7 +89,7 @@ body {
   text-shadow: 0 0 20px cyan;
 }
 
-/* SKINS GRID */
+/* SKINS */
 #skins {
   display: grid;
   grid-template-columns: repeat(6, 45px);
@@ -93,14 +97,12 @@ body {
   margin-bottom: 10px;
 }
 
-/* SKIN */
 .skin {
   width: 45px;
   height: 45px;
   border-radius: 50%;
   border: 3px solid transparent;
   cursor: pointer;
-  transition: transform 0.2s;
 }
 
 .skin.selected {
