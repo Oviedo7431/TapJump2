@@ -19,8 +19,7 @@ let playerY = 0;
 let velocity = 0;
 let jumping = false;
 
-let skin = "#3b82f6";
-let best = localStorage.getItem("best") || 0;
+let skin = "#facc15";
 
 // ---------------- START ----------------
 playBtn.onclick = () => {
@@ -79,12 +78,9 @@ function updatePlayer() {
 
 // ---------------- DIFFICULTY ----------------
 function updateDifficulty() {
-
   level = Math.floor(score / 10) + 1;
-
   speed = 6 + score * 0.2;
   delay = Math.max(400, 1400 - score * 15);
-
   levelText.textContent = "LVL " + level;
 }
 
@@ -94,14 +90,17 @@ function createObstacle() {
   const o = document.createElement("div");
   o.classList.add("obstacle");
 
-  let x = innerWidth;
+  let x = window.innerWidth;
   o.style.left = x + "px";
 
   game.appendChild(o);
 
   const move = setInterval(() => {
 
-    if (state !== "playing") return clearInterval(move);
+    if (state !== "playing") {
+      clearInterval(move);
+      return;
+    }
 
     x -= speed;
     o.style.left = x + "px";
@@ -132,7 +131,6 @@ function createObstacle() {
 
 // ---------------- SPAWN ----------------
 function spawnLoop() {
-
   if (state !== "playing") return;
 
   createObstacle();
@@ -142,7 +140,6 @@ function spawnLoop() {
 
 // ---------------- LOOP ----------------
 function loop() {
-
   if (state !== "playing") return;
 
   updatePlayer();
@@ -151,18 +148,11 @@ function loop() {
 
 // ---------------- GAME OVER ----------------
 function gameOver() {
-
   state = "gameover";
-
-  if (score > best) {
-    best = score;
-    localStorage.setItem("best", best);
-  }
 
   gameOverScreen.innerHTML = `
     <h1>GAME OVER</h1>
     <p>Score: ${score}</p>
-    <p>Best: ${best}</p>
     <p>Toca para reiniciar</p>
   `;
 
