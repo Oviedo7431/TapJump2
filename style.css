@@ -8,7 +8,8 @@
 body {
   font-family: Arial;
   overflow: hidden;
-  background: #050816;
+  background: radial-gradient(circle at top, #1e293b, #050816);
+  transition: background 0.3s ease;
 }
 
 /* GAME */
@@ -16,7 +17,6 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle at top, #1e293b, #050816);
 }
 
 /* HUD */
@@ -47,6 +47,7 @@ body {
   bottom: 120px;
   border-radius: 10px;
   box-shadow: 0 0 20px;
+  transition: box-shadow 0.2s ease;
 }
 
 /* OBSTÁCULOS */
@@ -148,8 +149,36 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  flex-direction: column;
+  text-align: center;
 }
 
 .hidden {
   display: none !important;
+}
+
+/* PARTICULAS */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleAnim 500ms forwards;
+}
+
+@keyframes particleAnim {
+  0% { opacity: 1; transform: translate(0,0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0); }
+}
+
+/* MODO FURIA / NEON */
+.furia {
+  animation: neonGlow 0.3s infinite alternate;
+}
+
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 10px cyan, 0 0 20px cyan; }
+  50% { box-shadow: 0 0 25px magenta, 0 0 40px yellow; }
+  100% { box-shadow: 0 0 10px lime, 0 0 25px orange; }
 }
