@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tap Jump Ultra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game">
+
+  <!-- MENÚ -->
+  <div id="menu">
+    <h1>⚡ TAP JUMP</h1>
+
+    <!-- SKINS -->
+    <div id="skins">
+
+      <button class="skin selected" data-color="#facc15" data-name="Amarillo"></button>
+      <button class="skin" data-color="#3b82f6" data-name="Azul"></button>
+      <button class="skin" data-color="#ef4444" data-name="Rojo"></button>
+      <button class="skin" data-color="#22c55e" data-name="Verde"></button>
+      <button class="skin" data-color="#f97316" data-name="Naranja"></button>
+      <button class="skin" data-color="#a855f7" data-name="Morado"></button>
+      <button class="skin" data-color="#ffffff" data-name="Blanco"></button>
+      <button class="skin" data-color="#000000" data-name="Negro"></button>
+      <button class="skin" data-color="#92400e" data-name="Marrón"></button>
+      <button class="skin" data-color="#ec4899" data-name="Rosado"></button>
+      <button class="skin" data-color="#38bdf8" data-name="Celeste"></button>
+
+    </div>
+
+    <div id="skinName">Azul</div>
+
+    <button id="playBtn">JUGAR</button>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud">
+    <div id="score">0</div>
+    <div id="level">LVL 1</div>
+  </div>
+
+  <!-- PLAYER -->
+  <div id="player"></div>
+
+  <!-- GAME OVER -->
+  <div id="gameOver" class="hidden"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
